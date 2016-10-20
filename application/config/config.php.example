@@ -37,6 +37,11 @@ $config['base_url'] = '';
 */
 $config['index_page'] = 'index.php';
 
+/**
+ * Command for running the docker images
+ */
+$config['docker_command'] = 'docker run -d -P -v /srv/letsencrypt/certs/demo.passman.cc/fullchain.pem:/etc/ssl/certs/ssl-cert-snakeoil.pem -v /srv/letsencrypt/certs/demo.passman.cc/privkey.pem:/etc/ssl/private/ssl-cert-snakeoil.key brantje/passman';
+
 /*
 |--------------------------------------------------------------------------
 | URI PROTOCOL

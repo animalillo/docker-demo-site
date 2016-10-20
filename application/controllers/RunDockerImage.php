@@ -24,7 +24,9 @@ class RunDockerImage extends CI_Controller {
         $instance->ip = $ip_address;
         $instance->start_time = (new DateTime)->getTimestamp();
 
-        $instance->docker_hash = exec("docker run -d -P animalillo/passman");
+        $command = $this->ci->config->item('docker_command');
+        
+        $instance->docker_hash = exec($command);
         exec("docker inspect $instance->docker_hash", $docker_info);
         
         $instance->docker_json = "";
