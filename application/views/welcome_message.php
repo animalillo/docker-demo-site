@@ -95,7 +95,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 
                 <?php if (!$running_demo) { ?>
                 <p>
-                    <a href="<?= site_url('Welcome/createContainer') ?>">Create container</a>
+                    <form method="POST" action="<?= site_url('Welcome/createContainer') ?>">
+                        <?= $recaptcha_html; ?>
+                        <input type="submit" value="Create container" />
+                    </form>
                 </p>
                 <?php } else { ?>
                 <p>

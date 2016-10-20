@@ -21,9 +21,9 @@ class Welcome extends CI_Controller {
             'running_demo' => false,
             'port' => 0
         ];
-        
+
+        $data['recaptcha_html'] = $this->recaptcha->recaptcha_get_html(false, true);
         if ($item) {
-            $data['recaptcha_html'] = $this->recaptcha->recaptcha_get_html();
             $data['running_demo'] = true;
             $data['port'] = $item->docker_public_port;
             $data['time_left'] = 3600 - ((new DateTime())->getTimestamp() - $item->start_time);
