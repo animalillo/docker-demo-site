@@ -24,7 +24,7 @@ class RunDockerImage extends CI_Controller {
         $instance->ip = $ip_address;
         $instance->start_time = (new DateTime)->getTimestamp();
         
-        $command = $this->ci->config->item('docker_command');
+        $command = $this->config->item('docker_command');
         
         $instance->docker_hash = exec($command);
         exec("docker inspect $instance->docker_hash", $docker_info);
