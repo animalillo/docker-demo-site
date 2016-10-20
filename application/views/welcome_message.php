@@ -26,56 +26,59 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 
-<header>
-    <div class="header-content">
-        <div class="header-content-inner">
-            <h1 id="homeHeading">Try passman </h1>
-            <hr>
-            <p><b>O</b>nce you click the following button you will be to a newly created
-                Nextcloud instance only for you, with passman installed on it. <br>
-                It will only be alive for an hour (1) and after that it will go into void. Meanwhile
-                you can do anything you want with it, have fun!</p>
-            <p>
-                The default username and password are:
-                <br />
-                Username: admin <br>
-                Password: admin
-            </p>
+<header class="layer">
 
-            <?php if ($running_demo) { ?>
+</header>
+<header>
+</header>
+<div class="header-content">
+    <div class="header-content-inner">
+        <h1 id="homeHeading">Try passman </h1>
+        <hr>
+        <p><b>O</b>nce you click the following button you will be to a newly created
+            Nextcloud instance only for you, with passman installed on it. <br>
+            It will only be alive for an hour (1) and after that it will go into void. Meanwhile
+            you can do anything you want with it, have fun!</p>
+        <p>
+            The default username and password are:
+            <br />
+            Username: admin <br>
+            Password: admin
+        </p>
+
+        <?php if ($running_demo) { ?>
             <p>
                 Your demo has <?= $time_left ?> seconds left before it goes to the VOID
             </p>
-            <?php } ?>
-            <?php if (!$running_demo) { ?>
-                <small>Setting up an instance takes about 15 seconds, please be patient.</small>
-                <p>
-                <form id="form">
-                    <?= $recaptcha_html; ?>
-                    <input type="button" id="create" class="btn btn-primary btn-xl page-scroll" value="Create container" />
-                </form>
+        <?php } ?>
+        <?php if (!$running_demo) { ?>
+            <small>Setting up an instance takes about 15 seconds, please be patient.</small>
+            <p>
+            <form id="form">
+                <?= $recaptcha_html; ?>
+                <input type="button" id="create" class="btn btn-primary btn-xl page-scroll" value="Create container" />
+            </form>
 
-                <span>
+            <span>
                     Status:
                 </span>
-                <span id="status">
+            <span id="status">
                     Not running
                 </span>
-                <i class="ellipsis">
-                    <i>.</i>
-                    <i>.</i>
-                    <i>.</i>
-                    <i>.</i>
-                    <i>.</i>
-                </i>
-                </p>
-            <?php } else { ?>
-                <p>
-                    <a class="btn btn-primary btn-xl page-scroll" href="http://demo.passman.cc:<?=$port?>">Go to demo!</a>
-                </p>
-            <?php } ?>
-        </div>
+            <i class="ellipsis">
+                <i>.</i>
+                <i>.</i>
+                <i>.</i>
+                <i>.</i>
+                <i>.</i>
+            </i>
+            </p>
+        <?php } else { ?>
+            <p>
+                <a class="btn btn-primary btn-xl page-scroll" href="http://demo.passman.cc:<?=$port?>">Go to demo!</a>
+            </p>
+        <?php } ?>
     </div>
-</header>
+</div>
 </body>
 </html>

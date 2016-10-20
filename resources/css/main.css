@@ -60,23 +60,23 @@ header {
     text-align: center;
     color: white;
 }
-header .header-content {
+.header-content {
     position: relative;
     text-align: center;
     padding: 100px 15px 100px;
     width: 100%;
 }
-header .header-content .header-content-inner h1 {
+.header-content .header-content-inner h1 {
     font-weight: 700;
     text-transform: uppercase;
     margin-top: 0;
     margin-bottom: 0;
     font-size: 30px;
 }
-header .header-content .header-content-inner hr {
+.header-content .header-content-inner hr {
     margin: 30px auto;
 }
-header .header-content .header-content-inner p {
+.header-content .header-content-inner p {
     font-weight: 300;
     color: #fff;
     font-size: 16px;
@@ -89,29 +89,39 @@ div.g-recaptcha {
 }
 header {
     min-height: 100%;
+    z-index: 1;
 }
 
-header .header-content {
+.header-content {
     position: absolute;
     top: 50%;
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
     padding: 0 50px;
+    z-index: 4;
+    color: #fff;
 }
-header .header-content .header-content-inner {
+.header-content .header-content-inner {
     max-width: 1050px;
     margin-left: auto;
     margin-right: auto;
 }
-header .header-content .header-content-inner h1 {
+.header-content .header-content-inner h1 {
     font-size: 50px;
+    z-index: 3;
 }
-header .header-content .header-content-inner p {
+.header-content .header-content-inner p {
     font-size: 18px;
-
+    z-index: 3;
     margin-left: auto;
     margin-right: auto;
+}
+header.layer{
+    position: absolute;
+    background-color:rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    background-image: none;
 }
 .call-to-action h2 {
     margin: 0 auto 20px;
