@@ -24,7 +24,7 @@ class RunDockerImage extends CI_Controller {
         $instance->ip = $ip_address;
         $instance->start_time = (new DateTime)->getTimestamp();
 
-        $instance->docker_hash = exec("docker run -d -P animalillo/passman");
+        $instance->docker_hash = exec("docker run -d -P -v /srv/letsencrypt/certs/demo.passman.cc/fullchain.pem:/etc/ssl/certs/ssl-cert-snakeoil.pem -v /srv/letsencrypt/certs/demo.passman.cc/privkey.pem:/etc/ssl/private/ssl-cert-snakeoil.key brantje/passman");
         exec("docker inspect $instance->docker_hash", $docker_info);
         
         $instance->docker_json = "";
@@ -34,8 +34,8 @@ class RunDockerImage extends CI_Controller {
         
         $docker_info = json_decode($instance->docker_json);
         
-        $eighty = "80/tcp";
-        $instance->docker_public_port = $docker_info[0]->NetworkSettings->Ports->{$eighty}[0]->HostPort;
+        $sslPort = "443/tcp";
+        $instance->docker_public_port = $docker_info[0]->NetworkSettings->Ports->{$sslPort}[0]->HostPort;
         
         echo "iptables -A INPUT -p tcp --dport $instance->docker_public_port -j ACCEPT";
         exec("iptables -A INPUT -p tcp --dport $instance->docker_public_port -j ACCEPT");
