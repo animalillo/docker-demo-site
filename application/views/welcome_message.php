@@ -15,6 +15,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- Latest compiled and minified JavaScript -->
     <script src="<?= base_url('resources/js/jquery.min.js'); ?>"></script>
     <script src="<?= base_url('resources/js/bootstrap.min.js'); ?>"></script>
+    <script src="<?= base_url('resources/js/main.js'); ?>"></script>
+    <script>
+        var post_url = "<?= site_url('Welcome/createContainer') ?>";
+        var status_url = "<?= site_url('Welcome/instanceReady') ?>";
+    </script>
 </head>
 
 <body id="page-top">
@@ -36,17 +41,33 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 Username: admin <br>
                 Password: admin
             </p>
+
             <?php if ($running_demo) { ?>
             <p>
                 Your demo has <?= $time_left ?> seconds left before it goes to the VOID
             </p>
             <?php } ?>
             <?php if (!$running_demo) { ?>
+                <small>Setting up an instance takes about 15 seconds, please be patient.</small>
                 <p>
-                <form method="POST" action="<?= site_url('Welcome/createContainer') ?>">
+                <form id="form">
                     <?= $recaptcha_html; ?>
-                    <input type="submit" class="btn btn-primary btn-xl page-scroll" value="Create container" />
+                    <input type="button" id="create" class="btn btn-primary btn-xl page-scroll" value="Create container" />
                 </form>
+
+                <span>
+                    Status:
+                </span>
+                <span id="status">
+                    Not running
+                </span>
+                <i class="ellipsis">
+                    <i>.</i>
+                    <i>.</i>
+                    <i>.</i>
+                    <i>.</i>
+                    <i>.</i>
+                </i>
                 </p>
             <?php } else { ?>
                 <p>
@@ -56,23 +77,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
     </div>
 </header>
-
-<!--
-<div id="container">
-	<h1>Welcome to Passman demos!</h1>
-
-	<div id="body">
-		<p>
-                    The demo is ready,
-                </p>
-                <p>
-                    You can even create accounts and share the url with your friends and try sharing!
-                </p>
-
-	</div>
-
-	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds. <?php echo  (ENVIRONMENT === 'development') ?  'CodeIgniter Version <strong>' . CI_VERSION . '</strong>' : '' ?></p>
-</div>
--->
 </body>
 </html>

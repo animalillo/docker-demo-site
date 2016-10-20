@@ -145,3 +145,103 @@ header .header-content .header-content-inner p {
 .btn-xl {
     padding: 15px 30px;
 }
+
+i.ellipsis i {
+    font-style: normal;
+    opacity: 0;
+    -webkit-animation: dot 1.3s infinite;
+    -webkit-animation-delay: 0s;
+    -moz-animation: dot 1.3s infinite;
+    -moz-animation-delay: 0s;
+    -o-animation: dot 1.3s infinite;
+    -o-animation-delay: 0s;
+    animation: dot 1.3s infinite;
+    animation-delay: 0s;
+}
+
+i.ellipsis i+i {
+    opacity: 0;
+    -webkit-animation: dot 1.3s infinite;
+    -webkit-animation-delay: 0.2s;
+    -moz-animation: dot 1.3s infinite;
+    -moz-animation-delay: 0.2s;
+    -o-animation: dot 1.3s infinite;
+    -o-animation-delay: 0.2s;
+    animation: dot 1.3s infinite;
+    animation-delay: 0.2s;
+}
+
+i.ellipsis i+i+i {
+    opacity: 0;
+    -webkit-animation: dot 1.3s infinite;
+    -webkit-animation-delay: 0.3s;
+    -moz-animation: dot 1.3s infinite;
+    -moz-animation-delay: 0.3s;
+    -o-animation: dot 1.3s infinite;
+    -o-animation-delay: 0.3s;
+    animation: dot 1.3s infinite;
+    animation-delay: 0.3s;
+}
+
+i.ellipsis i+i+i+i {
+    opacity: 0;
+    -webkit-animation: dot 1.3s infinite;
+    -webkit-animation-delay: 0.4s;
+    -moz-animation: dot 1.3s infinite;
+    -moz-animation-delay: 0.4s;
+    -o-animation: dot 1.3s infinite;
+    -o-animation-delay: 0.4s;
+    animation: dot 1.3s infinite;
+    animation-delay: 0.4s;
+}
+
+i.ellipsis i+i+i+i+i {
+    opacity: 0;
+    -webkit-animation: dot 1.3s infinite;
+    -webkit-animation-delay: 0.5s;
+    -moz-animation: dot 1.3s infinite;
+    -moz-animation-delay: 0.5s;
+    -o-animation: dot 1.3s infinite;
+    -o-animation-delay: 0.5s;
+    animation: dot 1.3s infinite;
+    animation-delay: 0.5s;
+}
+
+@-webkit-keyframes dot {
+    0%, 50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+@-moz-keyframes dot {
+    0%, 50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+@-o-keyframes dot {
+    0%, 50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+@keyframes dot {
+    0%, 50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

@@ -38,7 +38,7 @@ class Daemon extends CI_Controller {
             }
             
             $this->cron();
-            sleep(10);
+            sleep(5);
         }
     }
     
