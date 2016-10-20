@@ -23,7 +23,7 @@ class RunDockerImage extends CI_Controller {
         $instance = new RunningInstance_Item();
         $instance->ip = $ip_address;
         $instance->start_time = (new DateTime)->getTimestamp();
-
+        
         $command = $this->ci->config->item('docker_command');
         
         $instance->docker_hash = exec($command);
@@ -36,8 +36,8 @@ class RunDockerImage extends CI_Controller {
         
         $docker_info = json_decode($instance->docker_json);
         
-        $eighty = "80/tcp";
-        $instance->docker_public_port = $docker_info[0]->NetworkSettings->Ports->{$eighty}[0]->HostPort;
+        $sslPort = "443/tcp";
+        $instance->docker_public_port = $docker_info[0]->NetworkSettings->Ports->{$sslPort}[0]->HostPort;
         
         echo "iptables -A INPUT -p tcp --dport $instance->docker_public_port -j ACCEPT";
         exec("iptables -A INPUT -p tcp --dport $instance->docker_public_port -j ACCEPT");
