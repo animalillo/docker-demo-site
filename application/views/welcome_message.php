@@ -8,7 +8,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-	
+
 	<title>Welcome to Passman!</title>
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="<?= base_url('resources/css/bootstrap.min.css'); ?>">

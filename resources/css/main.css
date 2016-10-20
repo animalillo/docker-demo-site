@@ -48,7 +48,7 @@ p {
     color: rgba(255, 255, 255, 0.7);
 }
 header {
-    position: relative;
+    position: fixed;
     width: 100%;
     min-height: auto;
     -webkit-background-size: cover;
@@ -118,7 +118,7 @@ header {
     margin-right: auto;
 }
 header.layer{
-    position: absolute;
+    position: fixed;
     background-color:rgba(0, 0, 0, 0.5);
     z-index: 2;
     background-image: none;
