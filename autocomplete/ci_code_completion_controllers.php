@@ -49,7 +49,8 @@
 * @property RunningInstance $RunningInstance
 * 
 ********* LIBRARIES *********
-*
+* @property Recaptcha $recaptcha
+* 
 */
 
 Class CI_Controller {

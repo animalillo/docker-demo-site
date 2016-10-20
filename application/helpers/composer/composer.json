@@ -1,0 +1,11 @@
+{
+	"description": "The passman demo",
+	"name": "passman/demo",
+	"type": "project",
+	"homepage": "https://passman.cc",
+	"license": "coppyright",
+	"require": {
+		"php": ">=5.2.4",
+		"php-curl-class/php-curl-class": "^4.11"
+	}
+}

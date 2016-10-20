@@ -22,7 +22,7 @@ class Welcome extends CI_Controller {
             'port' => 0
         ];
 
-        $data['recaptcha_html'] = $this->recaptcha->recaptcha_get_html(false, true);
+        $data['recaptcha_html'] = $this->recaptcha->get_html();
         if ($item) {
             $data['running_demo'] = true;
             $data['port'] = $item->docker_public_port;
@@ -37,13 +37,7 @@ class Welcome extends CI_Controller {
         $item = $this->RunningInstance->getByIP($ip);
         
         if (!$item) {
-            $this->recaptcha->recaptcha_check_answer(
-                $_SERVER['REMOTE_ADDR'],
-                $this->input->post('recaptcha_challenge_field'),
-                $this->input->post('recaptcha_response_field')
-            );
-
-            if ($this->recaptcha->getIsValid()) {
+            if ($this->recaptcha->catch_answer()) {
                 $job = new JobQueue_Item();
                 $job->action = 'RunDockerImage';
                 $job->parameters = $this->input->ip_address();
