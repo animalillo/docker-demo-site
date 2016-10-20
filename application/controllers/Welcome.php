@@ -43,7 +43,7 @@ class Welcome extends CI_Controller {
             $this->JobQueue->add($job);
         }
         
-        header('Refresh:0;url='.base_url('Welcome/demoLoop'));
+        header('Refresh:0;url='.  site_url('Welcome/demoLoop'));
     }
     
     public function demoLoop() {
@@ -56,7 +56,7 @@ class Welcome extends CI_Controller {
             redirect('http://demo.passman.cc:' . $item->docker_public_port);
         }
         else {
-            header('Refresh:10;url='.base_url('Welcome/demoLoop'));
+            header('Refresh:10;url='.  site_url('Welcome/demoLoop'));
             exit();
         }
     }

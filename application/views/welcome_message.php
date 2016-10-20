@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Welcome to CodeIgniter</title>
+	<title>Welcome to Passman!</title>
 
 	<style type="text/css">
 
@@ -95,7 +95,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 
                 <?php if (!$running_demo) { ?>
                 <p>
-                    <a href="<?= base_url('Welcome/createContainer') ?>">Create container</a>
+                    <a href="<?= site_url('Welcome/createContainer') ?>">Create container</a>
                 </p>
                 <?php } else { ?>
                 <p>
