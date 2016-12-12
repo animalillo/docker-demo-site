@@ -26,3 +26,6 @@ application/cache/*
 
 # Composer dependencies
 application/helpers/composer/vendor/*
+
+# Daemon configuration
+/daemon_config
