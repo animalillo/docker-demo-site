@@ -2,15 +2,20 @@ Setup
 =========================
 1. Site and daemon main configuration:
   > cd application/config/
+
   > cp config.php.example config.php
+
   > cp database.php.example daabase.php
+
   > cd ../../
 
 1. Edit *application/config/databaser.php* and *application/config/config.php* to reflect your site configuration
 
 1. Setup composer dependencies
   > cd application/helpers/composer
+
   > ./composerh.phar install
+
   > cd ../../../
 
 1. Setup daemon configuration:
