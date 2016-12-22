@@ -25,6 +25,7 @@ $(document).ready(function () {
         txtIdx = 0;
         $('.ellipsis').show();
         $('#create').attr('disabled', true);
+        _paq.push(['trackEvent', 'Demo', 'Run']);
         setStatusMessage();
         $.post(post_url, $('#form').serialize(), function (data) {
             setInterval(function(){
