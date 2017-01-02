@@ -44,6 +44,7 @@ $(document).ready(function () {
         txtIdx = 0;
         $('.ellipsis').show();
         $('#create').attr('disabled', true);
+        _paq.push(['trackEvent', 'container', 'start']);
         setStatusMessage();
         $.post(post_url, $('#form').serialize(), function (data) {
             setInterval(function(){
