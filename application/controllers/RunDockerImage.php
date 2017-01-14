@@ -50,11 +50,18 @@ class RunDockerImage extends CI_Controller {
         
         $docker_info = json_decode($instance->docker_json);
         
-        $sslPort = "443/tcp";
+        $sslPort = $this->config->item('docker_port');
+        
+        if ($sslPort === NULL) {
+            $sslPort = "443/tcp";
+        }
+        
+        $protocol = explode('/', $sslPort)[1];
+        
         $instance->docker_public_port = $docker_info[0]->NetworkSettings->Ports->{$sslPort}[0]->HostPort;
         
-        echo "iptables -A INPUT -p tcp --dport $instance->docker_public_port -j ACCEPT";
-        exec("iptables -A INPUT -p tcp --dport $instance->docker_public_port -j ACCEPT");
+        echo "iptables -A INPUT -p $protocol--dport $instance->docker_public_port -j ACCEPT";
+        exec("iptables -A INPUT -p $protocol --dport $instance->docker_public_port -j ACCEPT");
         $this->RunningInstance->createInstance($instance);
         // To delete: iptables -D INPUT -p tcp $instance->docker_public_port -j ACCEPT
     }

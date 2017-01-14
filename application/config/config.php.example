@@ -42,6 +42,12 @@ $config['index_page'] = 'index.php';
  */
 $config['docker_command'] = 'docker run -d -P -v /srv/letsencrypt/certs/demo.passman.cc/fullchain.pem:/etc/ssl/certs/ssl-cert-snakeoil.pem -v /srv/letsencrypt/certs/demo.passman.cc/privkey.pem:/etc/ssl/private/ssl-cert-snakeoil.key brantje/passman';
 
+/**
+ * Port to expose from the docker image.
+ * Make sure you use the -P option so you get different docker port mappings on 
+ * the local machine!
+ */
+$config['docker_port'] = '443/tcp';
 /*
 |--------------------------------------------------------------------------
 | URI PROTOCOL
