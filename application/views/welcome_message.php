@@ -100,7 +100,7 @@
             </p>
         <?php } else { ?>
             <p>
-                <a class="btn btn-primary btn-xl page-scroll" href="http://demo.passman.cc:<?=$port?>">Go to demo!</a>
+                <a class="btn btn-primary btn-xl page-scroll" href="https://demo.passman.cc:<?=$port?>">Go to demo!</a>
             </p>
         <?php } ?>
     </div>
