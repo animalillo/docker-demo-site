@@ -72,7 +72,7 @@ class Welcome extends CI_Controller {
         header('Refresh:0;url='.  site_url('Welcome/demoLoop'));
     }
     
-    private function testConnection($address, $requiredStatusCode) {
+    private function testConnection($address) {
         $ch = curl_init($address);
         curl_setopt($ch, CURLOPT_HEADER, true);    // we want headers
         curl_setopt($ch, CURLOPT_NOBODY, true);    // we don't need body
@@ -81,7 +81,7 @@ class Welcome extends CI_Controller {
         curl_exec($ch);
         $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         curl_close($ch);
-        return $httpcode == $requiredStatusCode;
+        return in_array($httpcode, [302, 200]);
     }
     
     public function demoLoop() {
@@ -90,7 +90,7 @@ class Welcome extends CI_Controller {
         
         echo "Please, wait while we create your demo";
         
-        if ($item && $this->testConnection('https://demo.passman.cc:' . $item->docker_public_port, 200)) {
+        if ($item && $this->testConnection("https://demo.passman.cc:$item->docker_public_port/login")) {
             redirect('https://demo.passman.cc:' . $item->docker_public_port);
         }
         else {
@@ -103,7 +103,7 @@ class Welcome extends CI_Controller {
         $ip = $this->input->ip_address();
         $item = $this->RunningInstance->getByIP($ip);
         
-        if ($item && $this->testConnection('https://demo.passman.cc:' . $item->docker_public_port, 200)) {
+        if ($item && $this->testConnection("https://demo.passman.cc:$item->docker_public_port/login")) {
             echo json_encode([
                 'status' => 'ok', 
                 'port' => $item->docker_public_port

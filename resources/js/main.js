@@ -52,10 +52,8 @@ $(document).ready(function () {
                     console.log(data);
                     if(data.hasOwnProperty('port')) {
                         document.location.href = location.protocol + '//' + location.hostname + ':' + data.port;
-                    } else {
                         $('#create').attr('disabled', false);
                         $('.ellipsis').hide();
-
                     }
                 })
             }, 8500)
