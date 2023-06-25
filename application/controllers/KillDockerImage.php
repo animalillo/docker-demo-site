@@ -38,7 +38,7 @@ class KillDockerImage extends CI_Controller {
 
         if ($instance) {
             exec("docker kill $instance->docker_hash");
-            exec("docker rm $instance->docker_hash");
+            exec("docker rm -v $instance->docker_hash");
             exec("iptables -D INPUT -p tcp --dport $instance->docker_public_port -j ACCEPT");
 
             $this->RunningInstance->delete($instance);
